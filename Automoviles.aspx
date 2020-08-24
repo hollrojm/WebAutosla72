@@ -5,18 +5,24 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head runat="server">
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
-    <title></title>
+    <title>Vehiculos</title>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js" integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.0/css/all.css" integrity="sha384-lZN37f5QGtY3VHgisS14W3ExzMWZxybE1SJSEsQp9S+oqd12jhcu+A56Ebc1zFSJ" crossorigin="anonymous">
 </head>
 <body>
+    <style>ul.nav a:hover { color: #FFA500 !important; }</style>
    <div class="container">
        <nav class="navbar navbar-expand-sm bg-primary navbar-dark">
+           <img src="imagenes/logo72.png" width="125" height="80" />
            <h3>
            Autos La 72
           <small class="text-muted">Vehiculos</small>
            </h3>          
   <ul class="navbar-nav">
+     <li class="nav-item">
+      <a class="nav-link" href="home.aspx">Home</a>
+    </li>
     <li class="nav-item">
       <a class="nav-link" href="#">Clientes</a>
     </li>
@@ -29,10 +35,15 @@
   </ul>
 
 </nav>  
+       
+
        <br />
+       
        <br />
        <div class="">
     <form id="form1" runat="server">
+      <div class="d-flex">
+          <div class="flex-fill">
         <asp:FormView ID="FormView1" runat="server" DataKeyNames="Matricula" DataSourceID="SqlDataSource1" AllowPaging="True">
             <EditItemTemplate>
                 <div class="">
@@ -47,7 +58,7 @@
                       
                         <asp:Label ID="Label2" runat="server" Text="Modelo:"></asp:Label>
                         <asp:TextBox class="form-control" ID="ModeloTextBox" runat="server" Text='<%# Bind("Modelo") %>' />
-                
+                        
                 </div>
 
                 <div class="form-group">
@@ -126,7 +137,9 @@
                 &nbsp;<asp:LinkButton ID="NewButton" runat="server" CausesValidation="False" CommandName="New" Text="Nuevo" />
             </ItemTemplate>
         </asp:FormView>
-        <asp:GridView class=" table table-dark " ID="GridView1" runat="server" AutoGenerateColumns="False" DataKeyNames="Matricula" DataSourceID="SqlDataSource1">
+     </div>
+     <div class="flex-fill" >
+        <asp:GridView class=" table table-striped " pagesize="7" ID="GridView1" runat="server" AutoGenerateColumns="False" DataKeyNames="Matricula" DataSourceID="SqlDataSource1" AllowPaging="True" truepagesize="4" BackColor="White" BorderColor="#CCCCCC" BorderStyle="None" BorderWidth="1px" CellPadding="3" Height="372px">
             <Columns>
                 <asp:BoundField DataField="Matricula" HeaderText="Matricula" ReadOnly="True" SortExpression="Matricula" />
                 <asp:BoundField DataField="Modelo" HeaderText="Modelo" SortExpression="Modelo" />
@@ -134,12 +147,70 @@
                 <asp:BoundField DataField="Color" HeaderText="Color" SortExpression="Color" />
                 <asp:BoundField DataField="Precio" HeaderText="Precio" SortExpression="Precio" />
             </Columns>
+            <FooterStyle BackColor="White" ForeColor="#000066" />
+            <HeaderStyle BackColor="#006699" Font-Bold="True" ForeColor="White" />
+            <PagerStyle BackColor="White" ForeColor="#000066" HorizontalAlign="Left" />
+            <RowStyle ForeColor="#000066" />
+            <SelectedRowStyle BackColor="#669999" Font-Bold="True" ForeColor="White" />
+            <SortedAscendingCellStyle BackColor="#F1F1F1" />
+            <SortedAscendingHeaderStyle BackColor="#007DBB" />
+            <SortedDescendingCellStyle BackColor="#CAC9C9" />
+            <SortedDescendingHeaderStyle BackColor="#00547E" />
         </asp:GridView>
-        <asp:SqlDataSource ID="SqlDataSource1" runat="server" ConnectionString="<%$ ConnectionStrings:CAutosla72ConnectionString3 %>" DeleteCommand="sp_eliminar_Datos_Automoviles" DeleteCommandType="StoredProcedure" InsertCommand="sp_Insertar_Automoviles" InsertCommandType="StoredProcedure" SelectCommand="sp_consultar_automoviles" SelectCommandType="StoredProcedure" UpdateCommand="sp_modificar_automovil" UpdateCommandType="StoredProcedure">
+    </div>
+ </div>
+        <asp:SqlDataSource ID="SqlDataSource1" runat="server"   ConnectionString="<%$ ConnectionStrings:CAutosla72ConnectionString3 %>" DeleteCommand="sp_eliminar_Datos_Automoviles" DeleteCommandType="StoredProcedure" InsertCommand="sp_Insertar_Automoviles" InsertCommandType="StoredProcedure" SelectCommand="sp_consultar_automoviles" SelectCommandType="StoredProcedure" UpdateCommand="sp_modificar_automovil" UpdateCommandType="StoredProcedure">
 
         </asp:SqlDataSource>
     </form>
    </div>
+     <!-- Footer -->
+<footer class="page-footer font-small bg-dark pt-4">
+
+  <!-- Footer Links -->
+  <div class="container-fluid text-center text-md-left">
+
+    <!-- Grid row -->
+    <div class="row">
+
+      <!-- Grid column -->
+      <div class="col-md-6 mt-md-0 mt-3">
+
+        <!-- Content -->
+        <h5 class="text-uppercase text-white" >Concesionario Autos la 72</h5>
+        <p class="text-white">Inventario On-line  y presencia en los principales portales digitales.</p>
+
+      </div>
+      
+        <!-- Links -->
+
+        <ul class="nav clearfix">
+      <li class="nav-item">
+      <a class="nav-link text-white"  href="home.aspx" >Home</a>
+    </li>
+      
+    <li class="nav-item">
+      <a class="nav-link text-white " href="#">Clientes</a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link text-white " href="#">Revisiones</a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link text-white" href="#">Ventas</a>
+    </li>
+  </ul>
+
+      </div>
+
+    </div>
+
+  <!-- Copyright -->
+  <div class="footer-copyright text-center py-3 text-white ">© 2020 Copyright:
+    <a  href="https://github.com/hollrojm/WebAutosla72" target="_blank"><i class="fab fa-github" >hollrojm</i> </a>
+  </div>
+  <!-- Copyright -->
+
+</footer> <!-- Footer -->
     </div>
 </body>
 </html>
