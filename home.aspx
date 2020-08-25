@@ -16,30 +16,39 @@
     
     <form id="form1" runat="server">
        <div class="container">
-       <nav class="navbar navbar-expand-sm bg-primary navbar-dark ">
+       <nav class="navbar navbar-expand-sm bg-primary navbar-dark justify-content-between ">
+           <div class="row">
+            <div class="col-xs-6">
            <img src="imagenes/logo72.png" width="125" height="80" />
+            </div>
+            <div class="col-xs-6 mt-4">
            <h3>
            Autos La 72
-          <small class="text-muted">Home</small>
-           </h3>          
-  <ul class="navbar-nav">
+          <small class="text-muted"><i class="fas fa-home"></i></small>
+           </h3>
+               </div> 
+           </div>
+  <ul class="navbar-nav  ">
+     
       <li class="nav-item">
-      <a class="nav-link "  href="Automoviles.aspx" >Vehiculos </a>
+      <a class="nav-link " href="Automoviles.aspx" ><i class="fas fa-car"></i>Vehiculos </a>
     </li>
       
     <li class="nav-item">
-      <a class="nav-link" href="#">Clientes</a>
+      <a class="nav-link" href="Clientes.aspx"><i class="fas fa-users"></i>Clientes </a>
     </li>
     <li class="nav-item">
-      <a class="nav-link" href="#">Revisiones</a>
+      <a class="nav-link" href="Revisiones.aspx"><i class="fas fa-wrench"></i>Revisiones </a>
     </li>
     <li class="nav-item">
-      <a class="nav-link" href="#">Ventas</a>
+      <a class="nav-link" href="Ventas.aspx"><i class="fas fa-comments-dollar"></i>Ventas </a>
     </li>
   </ul>
            
 </nav>  
-    
+           <br />
+           <p class="h1 text-center "><i class="fas fa-car text-primary"> </i>&nbsp;CONCESIONARIO AUTOS LA 72&nbsp;<i class="fas fa-car text-primary"></i></p> 
+            <br />
            
     </form>
     <div id="carouselExampleCaptions" class="carousel slide" data-ride="carousel">
@@ -105,19 +114,19 @@
       
         <!-- Links -->
 
-        <ul class="nav clearfix">
+       <ul class="nav  ">
       <li class="nav-item">
-      <a class="nav-link text-white"  href="Automoviles.aspx" >Vehiculos </a>
+      <a class="nav-link " href="Automoviles.aspx" ><i class="fas fa-car"></i>Vehiculos </a>
     </li>
       
     <li class="nav-item">
-      <a class="nav-link text-white " href="#">Clientes</a>
+      <a class="nav-link" href="Clientes.aspx"><i class="fas fa-users"></i>Clientes</a>
     </li>
     <li class="nav-item">
-      <a class="nav-link text-white " href="#">Revisiones</a>
+      <a class="nav-link" href="Revisiones.aspx"><i class="fas fa-wrench"></i>Revisiones</a>
     </li>
     <li class="nav-item">
-      <a class="nav-link text-white" href="#">Ventas</a>
+      <a class="nav-link" href="Ventas.aspx"><i class="fas fa-comments-dollar"></i>Ventas</a>
     </li>
   </ul>
 

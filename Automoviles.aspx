@@ -11,46 +11,58 @@
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.0/css/all.css" integrity="sha384-lZN37f5QGtY3VHgisS14W3ExzMWZxybE1SJSEsQp9S+oqd12jhcu+A56Ebc1zFSJ" crossorigin="anonymous">
 </head>
 <body>
-    <style>ul.nav a:hover { color: #FFA500 !important; }</style>
+    <style>
+        ul.nav a:hover {
+            color: #FFA500 !important;
+        }
+    </style>
    <div class="container">
-       <nav class="navbar navbar-expand-sm bg-primary navbar-dark">
+       <nav class="navbar navbar-expand-sm bg-primary navbar-dark justify-content-between ">
+           <div class="row">
+            <div class="col-xs-6">
            <img src="imagenes/logo72.png" width="125" height="80" />
+            </div>
+            <div class="col-xs-6 mt-4">
            <h3>
            Autos La 72
-          <small class="text-muted">Vehiculos</small>
-           </h3>          
-  <ul class="navbar-nav">
-     <li class="nav-item">
-      <a class="nav-link" href="home.aspx">Home</a>
+          <small class="text-muted"><i class="fas fa-car"></i></small>
+           </h3>
+               </div> 
+           </div>
+  <ul class="navbar-nav  ">
+       <li class="nav-item">
+      <a class="nav-link " href="home.aspx" ><i class="fas fa-home"></i>Home </a>
+    </li>
+      <li class="nav-item">
+      <a class="nav-link " href="Automoviles.aspx" ><i class="fas fa-car"></i>Vehiculos </a>
+    </li>
+      
+    <li class="nav-item">
+      <a class="nav-link" href="Clientes.aspx"><i class="fas fa-users"></i>Clientes</a>
     </li>
     <li class="nav-item">
-      <a class="nav-link" href="#">Clientes</a>
+      <a class="nav-link" href="Revisiones.aspx"><i class="fas fa-wrench"></i>Revisiones</a>
     </li>
     <li class="nav-item">
-      <a class="nav-link" href="#">Revisiones</a>
-    </li>
-    <li class="nav-item">
-      <a class="nav-link" href="#">Ventas</a>
+      <a class="nav-link" href="Ventas.aspx"><i class="fas fa-comments-dollar"></i>Ventas</a>
     </li>
   </ul>
-
+           
 </nav>  
-       
-
-       <br />
-       
-       <br />
+           <br />
+           <p class="h1 text-center "><i class="fas fa-car text-primary"> </i>&nbsp;VEHICULOS&nbsp;<i class="fas fa-car text-primary"></i></p> 
+            <br />
        <div class="">
     <form id="form1" runat="server">
       <div class="d-flex">
           <div class="flex-fill">
         <asp:FormView ID="FormView1" runat="server" DataKeyNames="Matricula" DataSourceID="SqlDataSource1" AllowPaging="True">
             <EditItemTemplate>
-                <div class="">
-                <div class="form-check-label">
+                
+                <div class="border-bottom border-warning rounded">
                     
-                        <asp:Label  ID="Label1" runat="server" Text="Matricula:"></asp:Label>
-                        <asp:Label  ID="MatriculaLabel1" runat="server" Text='<%# Eval("Matricula") %>' />
+                        <asp:Label class="text-secondary" ID="Label1" runat="server" Text="Matricula:"></asp:Label>
+                        <asp:Label  class="text-secondary" ID="MatriculaLabel1" runat="server" Text='<%# Eval("Matricula") %>' />
 
                 </div>
                         
@@ -94,7 +106,7 @@
                 
                 <div class="form-group">
                 <asp:Label ID="Label7" runat="server" Text="Modelo:"></asp:Label>
-                <asp:RequiredFieldValidator runat="server" id="ReqModelo" controltovalidate="ModeloTextBox" errormessage="* Por favor ingrese Modelo!" ForeColor="Red" />
+                &nbsp;<asp:RequiredFieldValidator runat="server" id="ReqModelo" controltovalidate="ModeloTextBox" errormessage="* Por favor ingrese Modelo!" ForeColor="Red" />
                 <asp:TextBox class="form-control" ID="ModeloTextBox" placeholder="Ingrese Modelo" runat="server" Text='<%# Bind("Modelo") %>' />
                 </div>
                 <div class="form-group">
@@ -117,29 +129,43 @@
                 </form>
             </InsertItemTemplate>
             <ItemTemplate>
+              
+                <div class="border border-secondary rounded">
+
                 Matricula:
-                <asp:Label ID="MatriculaLabel" runat="server" Text='<%# Eval("Matricula") %>' />
+                <asp:Label  ID="MatriculaLabel" runat="server" Text='<%# Eval("Matricula") %>' />
+                </div>
                 <br />
+                <div class="border border-secondary rounded">
                 Modelo:
                 <asp:Label ID="ModeloLabel" runat="server" Text='<%# Bind("Modelo") %>' />
+                </div>
                 <br />
+                <div class="border border-secondary rounded">
                 Marca:
                 <asp:Label ID="MarcaLabel" runat="server" Text='<%# Bind("Marca") %>' />
+                </div>
                 <br />
+                <div class="border border-secondary rounded">
                 Color:
                 <asp:Label ID="ColorLabel" runat="server" Text='<%# Bind("Color") %>' />
+                </div>
                 <br />
+                <div class="border border-secondary rounded">
                 Precio:
                 <asp:Label ID="PrecioLabel" runat="server" Text='<%# Bind("Precio") %>' />
+                </div>
                 <br />
-                <asp:LinkButton ID="EditButton" runat="server" CausesValidation="False" CommandName="Edit" Text="Editar" />
-                &nbsp;<asp:LinkButton ID="DeleteButton" runat="server" CausesValidation="False" CommandName="Delete" Text="Eliminar" />
-                &nbsp;<asp:LinkButton ID="NewButton" runat="server" CausesValidation="False" CommandName="New" Text="Nuevo" />
+                <asp:LinkButton class="btn btn-warning " ID="EditButton" runat="server" CausesValidation="False" CommandName="Edit" Text="Editar" />
+                &nbsp;<asp:LinkButton class="btn btn-danger" ID="DeleteButton" runat="server" CausesValidation="False" CommandName="Delete" Text="Eliminar" />
+                &nbsp;<asp:LinkButton class="btn btn-success" ID="NewButton" runat="server" CausesValidation="False" CommandName="New" Text="Nuevo" />
+              </div>
             </ItemTemplate>
         </asp:FormView>
      </div>
      <div class="flex-fill" >
-        <asp:GridView class=" table table-striped " pagesize="7" ID="GridView1" runat="server" AutoGenerateColumns="False" DataKeyNames="Matricula" DataSourceID="SqlDataSource1" AllowPaging="True" truepagesize="4" BackColor="White" BorderColor="#CCCCCC" BorderStyle="None" BorderWidth="1px" CellPadding="3" Height="372px">
+        <asp:GridView class=" table table-striped " pagesize="7" ID="GridView1" runat="server" AutoGenerateColumns="False" DataKeyNames="Matricula" DataSourceID="SqlDataSource1" AllowPaging="True" truepagesize="4" CellPadding="4" Height="372px" ForeColor="#333333" GridLines="None">
+            <AlternatingRowStyle BackColor="White" />
             <Columns>
                 <asp:BoundField DataField="Matricula" HeaderText="Matricula" ReadOnly="True" SortExpression="Matricula" />
                 <asp:BoundField DataField="Modelo" HeaderText="Modelo" SortExpression="Modelo" />
@@ -147,15 +173,16 @@
                 <asp:BoundField DataField="Color" HeaderText="Color" SortExpression="Color" />
                 <asp:BoundField DataField="Precio" HeaderText="Precio" SortExpression="Precio" />
             </Columns>
-            <FooterStyle BackColor="White" ForeColor="#000066" />
-            <HeaderStyle BackColor="#006699" Font-Bold="True" ForeColor="White" />
-            <PagerStyle BackColor="White" ForeColor="#000066" HorizontalAlign="Left" />
-            <RowStyle ForeColor="#000066" />
-            <SelectedRowStyle BackColor="#669999" Font-Bold="True" ForeColor="White" />
-            <SortedAscendingCellStyle BackColor="#F1F1F1" />
-            <SortedAscendingHeaderStyle BackColor="#007DBB" />
-            <SortedDescendingCellStyle BackColor="#CAC9C9" />
-            <SortedDescendingHeaderStyle BackColor="#00547E" />
+            <EditRowStyle BackColor="#2461BF" />
+            <FooterStyle BackColor="#507CD1" ForeColor="White" Font-Bold="True" />
+            <HeaderStyle BackColor="#507CD1" Font-Bold="True" ForeColor="White" />
+            <PagerStyle BackColor="#2461BF" ForeColor="White" HorizontalAlign="Center" />
+            <RowStyle BackColor="#EFF3FB" />
+            <SelectedRowStyle BackColor="#D1DDF1" Font-Bold="True" ForeColor="#333333" />
+            <SortedAscendingCellStyle BackColor="#F5F7FB" />
+            <SortedAscendingHeaderStyle BackColor="#6D95E1" />
+            <SortedDescendingCellStyle BackColor="#E9EBEF" />
+            <SortedDescendingHeaderStyle BackColor="#4870BE" />
         </asp:GridView>
     </div>
  </div>
@@ -184,19 +211,22 @@
       
         <!-- Links -->
 
-        <ul class="nav clearfix">
+        <ul class="nav  ">
+       <li class="nav-item">
+      <a class="nav-link " href="home.aspx" ><i class="fas fa-home"></i>Home </a>
+    </li>
       <li class="nav-item">
-      <a class="nav-link text-white"  href="home.aspx" >Home</a>
+      <a class="nav-link " href="Automoviles.aspx" ><i class="fas fa-car"></i>Vehiculos </a>
     </li>
       
     <li class="nav-item">
-      <a class="nav-link text-white " href="#">Clientes</a>
+      <a class="nav-link" href="Clientes.aspx"><i class="fas fa-users"></i>Clientes</a>
     </li>
     <li class="nav-item">
-      <a class="nav-link text-white " href="#">Revisiones</a>
+      <a class="nav-link" href="Revisiones.aspx"><i class="fas fa-wrench"></i>Revisiones</a>
     </li>
     <li class="nav-item">
-      <a class="nav-link text-white" href="#">Ventas</a>
+      <a class="nav-link" href="Ventas.aspx"><i class="fas fa-comments-dollar"></i>Ventas</a>
     </li>
   </ul>
 
